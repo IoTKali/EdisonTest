@@ -16,4 +16,5 @@ for i in range(2):
     time.sleep(2)
     
 myLcd.clear()
+myLcd.setColor(0, 0, 0)
 del myLcd
