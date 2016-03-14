@@ -11,9 +11,9 @@ myLcd.setCursor(0,0)
 
 # RGB Red
 myLcd.setColor(0, 255, 0)
-myLcd.write('Disponible')
+myLcd.setText('Disponible')
 time.sleep(3)
 myLcd.setColor(255, 0, 0)
-myLcd.write('No disponible')
+myLcd.setText('No disponible')
 
 del myLcd
