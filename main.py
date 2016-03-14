@@ -5,7 +5,7 @@ import pyupm_i2clcd as lcd
 # Initialize Jhd1313m1 at 0x3E (LCD_ADDRESS) and 0x62 (RGB_ADDRESS) 
 myLcd = lcd.Jhd1313m1(0, 0x3E, 0x62)
 
-while True:
+for i in range(5):
     myLcd.setCursor(0,0)
     myLcd.setColor(0, 255, 0)
     myLcd.write('Disponible')
@@ -13,5 +13,7 @@ while True:
     myLcd.setCursor(0,0)
     myLcd.setColor(255, 0, 0)
     myLcd.write('No disponible')
+    time.sleep(2)
 
+myLcd.noDisplay()
 del myLcd
