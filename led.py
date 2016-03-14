@@ -9,7 +9,7 @@ print led.name()
 
 # Turn the LED on and off 10 times, pausing one second
 # between transitions
-for i in range (0,10):
+for i in rang   e (0,10):
     led.on()
     time.sleep(1)
     led.off()
