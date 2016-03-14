@@ -15,5 +15,4 @@ for i in range(2):
     myLcd.write('No disponible')
     time.sleep(2)
 
-myLcd.display_off()
 del myLcd
