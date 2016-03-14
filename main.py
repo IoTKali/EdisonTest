@@ -14,5 +14,6 @@ for i in range(2):
     myLcd.setColor(255, 0, 0)
     myLcd.write('No disponible')
     time.sleep(2)
-
+    
+myLcd.display_off()
 del myLcd
