@@ -14,4 +14,5 @@ display = lcd.Jhd1313m1(0, 0x3E, 0x62)
 bar = servo.ES08A(5)
 
 while True:
-    print button.value()
+    i = buttonI.value()
+    print i
