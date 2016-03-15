@@ -1,39 +1,24 @@
-import time, sys, signal, atexit
-import pyupm_l298 as upmL298
+import time
+import pyupm_servo as servo 
 
-# Instantiate one of the 2 possible DC motors on a L298 Dual
-# H-Bridge.  For controlling a stepper motor, see the l298-stepper
-# example.
-myHBridge = upmL298.L298(3, 4, 7)
+# Create the servo object using D5
+gServo = servo.ES08A(5)
 
+for i in range(0,10): 
+    # Set the servo arm to 0 degrees
+    gServo.setAngle(0)
+    print 'Set angle to 0'
+    time.sleep(1)
 
-## Exit handlers ##
-# This stops python from printing a stacktrace when you hit control-C
-def SIGINTHandler(signum, frame):
-	raise SystemExit
+    # Set the servo arm to 90 degrees
+    gServo.setAngle(90)
+    print 'Set angle to 90'
+    time.sleep(1)
 
-# This lets you run code on exit,
-# including functions from myHBridge
-def exitHandler():
-	print "Exiting"
-	sys.exit(0)
+    # Set the servo arm to 180 degrees
+    gServo.setAngle(180)
+    print 'Set angle to 180'
+    time.sleep(1)
 
-# Register exit handlers
-atexit.register(exitHandler)
-signal.signal(signal.SIGINT, SIGINTHandler)
-
-
-print "Starting motor at 50% for 3 seconds..."
-myHBridge.setSpeed(50)
-myHBridge.setDirection(upmL298.L298.DIR_CW)
-myHBridge.enable(True)
-
-time.sleep(3)
-
-print "Reversing direction..."
-myHBridge.setDirection(upmL298.L298.DIR_NONE) # fast stop
-myHBridge.setDirection(upmL298.L298.DIR_CCW)
-time.sleep(3);
-
-myHBridge.setSpeed(0)
-myHBridge.enable(False)
+# Delete the servo object
+del gServo 
