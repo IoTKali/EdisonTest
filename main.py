@@ -1,4 +1,5 @@
 import time
+import threading
 import pyupm_grove as grove
 import pyupm_i2clcd as lcd
 import pyupm_ttp223 as touch
@@ -14,5 +15,4 @@ display = lcd.Jhd1313m1(0, 0x3E, 0x62)
 bar = servo.ES08A(5)
 
 while True:
-    i = buttonI.value()
-    print i
+    print touchO.isPressed()
