@@ -12,7 +12,7 @@ button = grove.GroveButton(4)
 
 validation = True
 while True:
-    if button.value() == 1 and validation:
+    if button.value() != 0 and validation:
         a.checkInput()
         validation = False
     validation = True

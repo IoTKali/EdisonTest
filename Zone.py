@@ -29,14 +29,15 @@ class Zone:
     def displayUpdate(self):
         self.display.clear()
         if self.avSpaces > 0:
-            self.display.setCursor(0, 0)
-            self.display.write("Available places:")
             if self.avSpaces >= self.regSpaces / 2:
                 self.display.setColor(0, 255, 0)
             elif self.avSpaces >= self.regSpaces * 3 / 4:
                 self.display.setColor(255, 255, 0)
             else:
                 self.display.setColor(255, 127, 0)
+                
+            self.display.setCursor(0, 0)
+            self.display.write("Available places:")
             self.display.setCursor(1, 0)
             self.display.write(str(self.avSpaces))
         else:
