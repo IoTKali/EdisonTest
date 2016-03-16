@@ -7,12 +7,12 @@ import pyupm_ttp223 as touch
 import pyupm_servo as servo
 
 class Zone:
-    def __init__(self, zoneId, regSpaces, spSpaces, exits):
+    def __init__(self, zoneId, regSpaces, spSpaces, exits, display):
         self.zoneId = zoneId
         self.regSpaces = regSpaces
         self.spSpaces = spSpaces
         self.avSpaces = regSpaces
-        self.display = lcd.Jhd1313m1(0, 0x3E, 0x62)
+        self.display = display
         self.exits = exits #exits must be an array of tuplets: (port, Zone)
         
         
