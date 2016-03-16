@@ -25,7 +25,7 @@ class Zone:
         self.avSpaces -= 1
         
     def displayAvailability(self):
-        self.clear()
+        self.display.clear()
         if self.avSpaces > 0:
             self.display.setCursor(0, 0)
             self.display.write("Available places:")
