@@ -47,5 +47,5 @@ class Zone:
             self.display.setCursor(1, 0)
             self.display.write("places")
             
-    def getAvPlaces(self):
+    def getAvSpaces(self):
         return self.avSpaces
