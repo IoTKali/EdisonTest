@@ -16,7 +16,7 @@ def updateDisplay():
     if avSpaces > 0:
         if avSpaces >= regSpaces / 2:
             display.setColor(0, 255, 0)
-        elif avSpaces >= regSpaces / 2:
+        elif avSpaces >= regSpaces / 4:
             display.setColor(255, 255, 0)
         else:
             display.setColor(255, 127, 0)
