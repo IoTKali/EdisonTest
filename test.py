@@ -32,9 +32,6 @@ def updateDisplay():
         display.write("No available")
         display.setCursor(1, 0)
         display.write("places")
-
-def checkSensor():
-    if exitSensor.isPressed():
         
 for i in range(regSpaces):
     avSpaces -= 1
