@@ -20,6 +20,7 @@ while True:
         buttonVal = False
         i = a.getAvSpaces()
         print str(i)
+        a.displayUpdate()
     else:
         buttonVal = True
     
@@ -28,7 +29,6 @@ while True:
         touchVal = False
         i = a.getAvSpaces()
         print str(i)
+        a.displayUpdate()
     else:
         touchVal = True
-    
-    a.displayUpdate()
