@@ -13,16 +13,18 @@ touch = touch.TTP223(8)
 
 buttonVal = True
 touchVal = True
-
+i = 0
 while True:
     if button.value() != 0 and buttonVal:
         a.checkInput()
         buttonVal = False
-        print a.avSpaces()
+        i = a.avSpaces()
+        print str(i)
     buttonVal = True
     
     if touch.isPressed() and touchVal:
         a.checkInput()
         touchVal = False
-        print a.avSpaces()
+        i = a.avSpaces()
+        print str(i)
     touchVal = True
