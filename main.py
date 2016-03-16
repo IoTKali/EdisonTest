@@ -30,3 +30,5 @@ while True:
         print str(i)
     else:
         touchVal = True
+    
+    a.displayUpdate()
