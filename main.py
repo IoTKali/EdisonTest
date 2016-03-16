@@ -17,3 +17,10 @@ for i in range(5):
     a.checkInput()
 time.sleep(1)
 a.displayAvailability()
+for i in range(4):
+    a.checkInput()
+time.sleep(1)
+a.displayAvailability()
+a.checkInput()
+time.sleep(1)
+a.displayAvailability()
