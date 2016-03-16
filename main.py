@@ -20,11 +20,13 @@ while True:
         buttonVal = False
         i = a.getAvSpaces()
         print str(i)
-    buttonVal = True
+    else:
+        buttonVal = True
     
     if touch.isPressed() and touchVal:
         a.checkInput()
         touchVal = False
         i = a.getAvSpaces()
         print str(i)
-    touchVal = True
+    else:
+        touchVal = True
