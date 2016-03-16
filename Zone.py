@@ -1,5 +1,5 @@
 import time
-import mosquitto
+#import mosquitto
 import threading
 import pyupm_grove as grove
 import pyupm_i2clcd as lcd
