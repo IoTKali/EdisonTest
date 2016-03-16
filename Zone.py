@@ -1,18 +1,22 @@
 import time
 import threading
+import paho.mqtt.client as mqtt
 import pyupm_grove as grove
 import pyupm_i2clcd as lcd
 import pyupm_ttp223 as touch
-import pyupm_servo as servo
 
 class Zone:
-    def __init__(self, zoneId, regSpaces, spSpaces, exits, display):
-        self.zoneId = zoneId
+    def __init__(self, zoneId, regSpaces, spSpaces, zones, display, host):
         self.regSpaces = regSpaces
         self.spSpaces = spSpaces
         self.avSpaces = regSpaces
-        self.exits = exits #exits must be an array of tuplets: (port, Zone)
+        self.zones = zones #exits must be an array of tuplets: (port, Zone)
         self.display = display
+        
+    #Makes a topic or joins as publisher for each connection
+    def connectTopics(self, zones):
+        self.client = paho.Client()
+        
         
     def checkExit(self, port):
         for e in self.exits:
@@ -21,7 +25,7 @@ class Zone:
                 self.avSpaces += 1
                 self.displayUpdate
                 
-    def checkInput(self):
+    def checkEntrance(self):
         #Connects to DB
         self.avSpaces -= 1
         self.displayUpdate
