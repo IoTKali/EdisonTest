@@ -5,6 +5,7 @@ import pyupm_ttp223 as touch
 import pyupm_servo as servo
 
 display = lcd.Jhd1313m1(0, 0x3E, 0x62)
+exitSensor = touch.TTP223(4)
 regSpaces = 17
 spSpaces = 5
 avSpaces = regSpaces
@@ -31,9 +32,11 @@ def updateDisplay():
         display.write("No available")
         display.setCursor(1, 0)
         display.write("places")
+
+def checkSensor():
+    if exitSensor.isPressed():
         
 for i in range(regSpaces):
     avSpaces -= 1
     updateDisplay()
     time.sleep(1)
-    

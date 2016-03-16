@@ -10,14 +10,15 @@ class Zone:
         self.regSpaces = regSpaces
         self.spSpaces = spSpaces
         self.avSpaces = regSpaces
-        self.zones = zones #exits must be an array of tuplets: (port, Zone)
+        self.exits
+        self.entrances
+        self.connections
         self.display = display
         
-    #Makes a topic or joins as publisher for each connection
-    def connectTopics(self, zones):
-        self.client = paho.Client()
-        
-        
+    def set_connection():
+        for e in self.zones:
+            #publisher(e[1])
+    
     def checkExit(self, port):
         for e in self.exits:
             if e[0] == port:
@@ -35,7 +36,7 @@ class Zone:
         if self.avSpaces > 0:
             if self.avSpaces >= self.regSpaces / 2:
                 self.display.setColor(0, 255, 0)
-            elif self.avSpaces >= self.regSpaces * 3 / 4:
+            elif self.avSpaces >= self.regSpaces / 4:
                 self.display.setColor(255, 255, 0)
             else:
                 self.display.setColor(255, 127, 0)
@@ -53,3 +54,6 @@ class Zone:
             
     def getAvSpaces(self):
         return self.avSpaces
+    
+    def sensorChange(port):
+        if ()
