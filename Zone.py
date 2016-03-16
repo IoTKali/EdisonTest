@@ -39,5 +39,7 @@ class Zone:
             self.display.write(str(self.avSpaces))
         else:
             self.display.setCursor(0, 0)
-            self.display.write("No available places")
+            self.display.write("No available")
+            seld.display.setCursor(1, 0)
+            self.display.write("places")
             self.display.setColor(255, 0, 0)
