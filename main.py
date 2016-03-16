@@ -8,14 +8,19 @@ import pyupm_servo as servo
 exits = [(4, touch.TTP223(4))]
 a = Zone.Zone(0, 20, 0, exits, lcd.Jhd1313m1(0, 0x3E, 0x62))
 
-button = grove.GroveButton(8)
+button = grove.GroveButton(4)
+touch = touch.TTP223(8)
 
-validation = True
+buttonVal = True
+touchVal = True
+
 while True:
-    if button.value() != 0 and validation:
+    if button.value() != 0 and buttonVal:
         a.checkInput()
-        validation = False
-    validation = True
+        buttonVal = False
+    buttonVal = True
     
-del button
-del a
+    if touch.isPressed() and touchVal:
+        a.checkInput()
+        touchVal = False
+    touchVal = True
