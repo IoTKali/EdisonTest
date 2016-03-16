@@ -17,3 +17,5 @@ while True:
         validation = False
     validation = True
     
+del button
+del a
