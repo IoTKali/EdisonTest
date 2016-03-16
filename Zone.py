@@ -11,9 +11,8 @@ class Zone:
         self.regSpaces = regSpaces
         self.spSpaces = spSpaces
         self.avSpaces = regSpaces
-        self.display = display
         self.exits = exits #exits must be an array of tuplets: (port, Zone)
-        
+        self.display = display
         
     def checkExit(self, port):
         for e in self.exits:
