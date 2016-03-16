@@ -18,13 +18,13 @@ while True:
     if button.value() != 0 and buttonVal:
         a.checkInput()
         buttonVal = False
-        i = a.avSpaces()
+        i = a.getAvSpaces()
         print str(i)
     buttonVal = True
     
     if touch.isPressed() and touchVal:
         a.checkInput()
         touchVal = False
-        i = a.avSpaces()
+        i = a.getAvSpaces()
         print str(i)
     touchVal = True
