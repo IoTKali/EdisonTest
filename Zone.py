@@ -46,3 +46,6 @@ class Zone:
             self.display.write("No available")
             self.display.setCursor(1, 0)
             self.display.write("places")
+            
+    def getAvPlaces(self):
+        return self.avSpaces
