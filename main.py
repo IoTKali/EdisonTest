@@ -8,7 +8,7 @@ import pyupm_servo as servo
 exits = [(4, touch.TTP223(4))]
 a = Zone.Zone(0, 20, 0, exits, lcd.Jhd1313m1(0, 0x3E, 0x62))
 
-button = grove.GroveButton(4)
+button = grove.GroveButton(8)
 
 validation = True
 while True:
