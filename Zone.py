@@ -19,12 +19,14 @@ class Zone:
             if e[0] == port:
                 #Sends data to DB
                 self.avSpaces += 1
+                self.displayUpdate
                 
     def checkInput(self):
         #Connects to DB
         self.avSpaces -= 1
+        self.displayUpdate
         
-    def displayAvailability(self):
+    def displayUpdate(self):
         self.display.clear()
         if self.avSpaces > 0:
             self.display.setCursor(0, 0)
@@ -38,8 +40,8 @@ class Zone:
             self.display.setCursor(1, 0)
             self.display.write(str(self.avSpaces))
         else:
+            self.display.setColor(255, 0, 0)
             self.display.setCursor(0, 0)
             self.display.write("No available")
-            seld.display.setCursor(1, 0)
+            self.display.setCursor(1, 0)
             self.display.write("places")
-            self.display.setColor(255, 0, 0)

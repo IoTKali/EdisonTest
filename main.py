@@ -8,19 +8,12 @@ import pyupm_servo as servo
 exits = [(4, touch.TTP223(4))]
 a = Zone.Zone(0, 20, 0, exits, lcd.Jhd1313m1(0, 0x3E, 0x62))
 
-a.displayAvailability()
-for i in range(10):
-    a.checkInput()
-time.sleep(1)
-a.displayAvailability()
-for i in range(5):
-    a.checkInput()
-time.sleep(1)
-a.displayAvailability()
-for i in range(4):
-    a.checkInput()
-time.sleep(1)
-a.displayAvailability()
-a.checkInput()
-time.sleep(1)
-a.displayAvailability()
+button = grove.GroveButton(4)
+
+validation = True
+while True:
+    if button.value() == 1 and validation:
+        a.checkInput()
+        validation = False
+    validation = True
+    
