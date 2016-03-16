@@ -5,6 +5,6 @@ import pyupm_ttp223 as touch
 import pyupm_servo as servo
 
 exits = [(4, touch.TTP223(4))]
-a = Zone(1, 20, 0, exits)
+a = Zone(a, 0, 20, 0, exits)
 
 a.displayAvailability()
