@@ -35,5 +35,5 @@ def updateDisplay():
 for i in range(regSpaces):
     avSpaces -= 1
     updateDisplay()
-    time.sleep(1.5)
+    time.sleep(1)
     
