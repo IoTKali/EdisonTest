@@ -11,7 +11,7 @@ a = Zone.Zone(0, 20, 0, exits, lcd.Jhd1313m1(0, 0x3E, 0x62))
 button = grove.GroveButton(4)
 touch = touch.TTP223(8)
 
-buttonVal = True
+buttonVal = False
 touchVal = True
 i = 0
 while True:
