@@ -14,11 +14,11 @@ class Zone:
         self.exits = exits #exits must be an array of tuplets: (port, Zone)
         self.display = display
         
-    #def checkExit(self, port):
-    #    for e in self.exits:
-    #        if e[0] == port:
-    #            #Sends data to DB
-    #            self.avSpaces += 1
+    def checkExit(self, port):
+        for e in self.exits:
+            if e[0] == port:
+                #Sends data to DB
+                self.avSpaces += 1
                 
     def checkInput(self):
         #Connects to DB
