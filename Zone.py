@@ -1,29 +1,27 @@
 import time
 import threading
-import paho.mqtt.client as mqtt
-import pyupm_grove as grove
+import paho.mqtt as mqtt
+import pyupm_grove as button
 import pyupm_i2clcd as lcd
 import pyupm_ttp223 as touch
 
 class Zone:
-    def __init__(self, zoneId, regSpaces, spSpaces, zones, display, host):
+    def __init__(self, zoneID, regSpaces, spSpaces, inputZones, outputZones, outsideInput, outsideOutput, display, host):
         self.regSpaces = regSpaces
         self.spSpaces = spSpaces
         self.avSpaces = regSpaces
-        self.exits
-        self.entrances
-        self.connections
         self.display = display
-        for e in self.exits:
-            thread.start_new_thread(checkExit, (e[0], ))
-    
-    def checkExit(self, port):
-        if port.isPressed():
-                
-    def checkEntrance(self):
-        #Connects to DB
-        self.avSpaces -= 1
-        self.displayUpdate
+        self.subClient = mqtt.client.Client(client_id=zoneID)
+        self.subClient.connect(host)
+        self.pubClients = []
+        i = 0
+        #¿zones?
+        for e in zones:
+            self.pubClients.append(mqtt.client.Client(client_id=zoneID+"_pub_"+e[1]))
+            self.pubClients[i].connect(host)
+            i += 1
+        self.SensorIThreadArr = []
+        
         
     def displayUpdate(self):
         self.display.clear()
@@ -50,5 +48,6 @@ class Zone:
         return self.avSpaces
         
     def main():
-        while True:
-            pass
+        threadArr = []
+        
+    
