@@ -2,7 +2,7 @@ import threading
 import sensors
 import paho.mqtt.client as mqtt
 
-class SensorThead(threading.Thread):
+class SensorThread(threading.Thread):
     def __init__(self, client, sensor, topic, msg):
         threading.Thread.__init__(self)
         self.client = client
