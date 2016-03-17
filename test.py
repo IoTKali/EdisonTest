@@ -54,7 +54,7 @@ def checkExit(sensor, op):
                     updateDisplay()
 
 
-thread.start_new_thread(checkExit, (inputSensor, "add", ))
+#thread.start_new_thread(checkExit, (inputSensor, "add", ))
 thread.start_new_thread(checkExit, (outputSensor, "sub", ))
 
 while True:
