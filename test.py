@@ -9,6 +9,7 @@ import pyupm_servo as servo
 
 #Sensor configuration
 zoneID = "zone_1"
+host = "10.43.28.194"
 display = lcd.Jhd1313m1(0, 0x3E, 0x62)
 exitSensor = touch.TTP223(4)
 regSpaces = 17
