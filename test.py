@@ -47,9 +47,9 @@ def checkExit(sensor, op):
             while True:
                 if checkPulse(sensor):
                     if op == "add":
-                        regSpaces += 1
+                        avSpaces += 1
                     else:
-                        regSpaces -= 1
+                        avSpaces -= 1
                     updateDisplay()
     
 thread.start_new_thread(checkExit, (inputSensor, "add", ))
