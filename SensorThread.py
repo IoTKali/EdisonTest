@@ -1,10 +1,12 @@
 import threading
 import sensors
-import Zone
+
 
 class SensorThead(threading.Thread):
+    import Zone
     def __init__(self, zone, sensor, topic, msg):
         threading.Thread.__init__(self)
+        self.zone = zone
         self.sensor = sensor
         self.topic = topic
         self.msg = msg
