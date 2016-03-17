@@ -40,6 +40,8 @@ def checkPulse(sensor):
                 return True
     return False
 
+avSpaces = regSpaces
+
 def checkExit(sensor, op):
     while True:
         if checkPulse(sensor):
@@ -51,7 +53,7 @@ def checkExit(sensor, op):
                         avSpaces = avSpaces - 1
                     updateDisplay()
 
-avSpaces = regSpaces
+
 thread.start_new_thread(checkExit, (inputSensor, "add", ))
 thread.start_new_thread(checkExit, (outputSensor, "sub", ))
 
