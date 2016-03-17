@@ -15,13 +15,13 @@ class Zone:
         self.client.connect(host)
         self.threadArr = []
         for e in outputZones:
-            self.threadArr.append(SensorThread.SensorThread(self, e[0], e[1], self.getID()))
+            self.threadArr.append(SensorThread.SensorThread(self.client, e[0], e[1], self.getID()))
             
         for e in outsideInput:
-            self.threadArr.append(SensorThread.SensorThread(self, e[0], self.zoneID, e[1]))
+            self.threadArr.append(SensorThread.SensorThread(self.client, e[0], self.zoneID, e[1]))
                                   
         for e in outsideOutput:
-            self.threadArr.append(SensorThread.SensorThread(self, e[0], e[1], self.getID()))
+            self.threadArr.append(SensorThread.SensorThread(self.client, e[0], e[1], self.getID()))
         
     def on_connect(client, userdata, flags, rc):
         client.subscribe(zoneID)
@@ -29,9 +29,6 @@ class Zone:
     def on_message(client, userdata, msg):
         self.avSpaces -= 1
         self.displayUpdate()
-        
-    def sendMessage(self, topic, msg):
-        self.client.publish(topic, msg)
         
     def displayUpdate(self):
         self.display.clear()

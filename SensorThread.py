@@ -1,9 +1,9 @@
 import threading
 import sensors
-
+import paho.mqtt.client as mqtt
 
 class SensorThead(threading.Thread):
-    def __init__(self, zone, sensor, topic, msg):
+    def __init__(self, client, sensor, topic, msg):
         threading.Thread.__init__(self)
         self.zone = zone
         self.sensor = sensor
@@ -11,13 +11,12 @@ class SensorThead(threading.Thread):
         self.msg = msg
         
     def main(self):
-        import Zone
         if isinstance(self.sensor, ttp223):
             if doubleTouchPulse(self.sensor):
-                self.Zone.sendMessage(self.topic, msg)
+                client.publish(self.topic, msg)
         else:
             if checkButtonPulse(self.sensor):
-                self.Zone.sendMessage(self.topic, msg)
+                client.publish(self.topic, msg)
         self.Zone.updateDisplay()
         
     def run(self):
