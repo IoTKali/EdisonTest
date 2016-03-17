@@ -19,7 +19,7 @@ class Zone:
             self.threadArr.append(SensorThread(self, e[0], e[1], self.getID()))
             
         for e in outsideInput:
-            self.threadArr.append(SensorThread(self, e[0], self.zoneID, e[1])
+            self.threadArr.append(SensorThread(self, e[0], self.zoneID, e[1]))
                                   
         for e in outsideOutput:
             self.threadArr.append(SensorThread(self, e[0], e[1], self.getID()))
