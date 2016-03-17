@@ -9,7 +9,6 @@ display = lcd.Jhd1313m1(0, 0x3E, 0x62)
 exitSensor = touch.TTP223(4)
 regSpaces = 17
 spSpaces = 5
-avSpaces = regSpaces
 inputSensor = touch.TTP223(4)
 outputSensor = touch.TTP223(5)
 
@@ -51,7 +50,8 @@ def checkExit(sensor, op):
                     else:
                         avSpaces = avSpaces - 1
                     updateDisplay()
-    
+
+avSpaces = regSpaces
 thread.start_new_thread(checkExit, (inputSensor, "add", ))
 thread.start_new_thread(checkExit, (outputSensor, "sub", ))
 
