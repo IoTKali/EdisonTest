@@ -1,4 +1,3 @@
-import threading
 import SensorThread
 import paho.mqtt.client as mqtt
 import pyupm_grove as button

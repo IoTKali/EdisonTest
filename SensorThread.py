@@ -3,7 +3,6 @@ import sensors
 
 
 class SensorThead(threading.Thread):
-    import Zone
     def __init__(self, zone, sensor, topic, msg):
         threading.Thread.__init__(self)
         self.zone = zone
@@ -12,6 +11,7 @@ class SensorThead(threading.Thread):
         self.msg = msg
         
     def main(self):
+        import Zone
         if isinstance(self.sensor, ttp223):
             if doubleTouchPulse(self.sensor):
                 self.Zone.sendMessage(self.topic, msg)
