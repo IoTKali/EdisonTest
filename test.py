@@ -42,7 +42,7 @@ def checkPulse(sensor):
 
 avSpaces = 17
 def setspaces(c):
-    if c = "add":
+    if c == "add":
         avSpaces += 1
     else:
         avSpaces -= 1
