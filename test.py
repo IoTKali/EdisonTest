@@ -54,3 +54,6 @@ def checkExit(sensor, op):
     
 thread.start_new_thread(checkExit, (inputSensor, "add", ))
 thread.start_new_thread(checkExit, (outputSensor, "sub", ))
+
+while True:
+    pass
