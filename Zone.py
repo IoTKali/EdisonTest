@@ -2,9 +2,9 @@ import paho.mqtt.client as mqtt
 import pyupm_grove as button
 import pyupm_i2clcd as lcd
 import pyupm_ttp223 as touch
+from SensorThread import SensorThread
 class Zone:
     def __init__(self, zoneID, regSpaces, spSpaces, outputZones, outsideInput, outsideOutput, display, host):
-        import SensorThread
         self.zoneID = zoneID
         self.regSpaces = regSpaces
         self.spSpaces = spSpaces
