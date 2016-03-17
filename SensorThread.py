@@ -1,19 +1,20 @@
 import threading
-#import sensors
-#import pyump_ttp223 as ttp223
+import sensors
 
-class SensorOThead(threading.Thread):
-    def __init__(self, zone):
+class SensorThead(threading.Thread, Zone, sensorTopicTuple, msg):
+    def __init__(self, zone, client, obj):
         threading.Thread.__init__(self)
+        self.sensorTopicTuple = sensorTopicTuple
+        self.msg = msg
         
     def main(self):
         if isinstance(self.sensor, ttp223):
-            if doubleTouchPulse():
-                client.publish(self.topic, zoneID)
+            if doubleTouchPulse(self.sensorTopicTuple[0]):
+                self.Zone.sendMessage(self.sensorTopicTuple[1], msg)
         else:
-            if checkButtonPulse():
-                client.publish(self.topic, zoneID)
-        updateDisplay() #display.updateDisplay()?
+            if checkButtonPulse(self.sensor):
+                self.Zone.sendMessage(self.sensorTopicTuple[1], msg)
+        self.Zone.updateDisplay()
         
     def run(self):
         self.main()
