@@ -52,6 +52,7 @@ def checkExit(sensor, op):
                     else:
                         avSpaces -= 1
                     updateDisplay()
+                    print avSpaces
 
 
 #thread.start_new_thread(checkExit, (inputSensor, "add", ))
