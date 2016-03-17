@@ -42,14 +42,15 @@ def checkPulse(sensor):
     return False
 
 def checkExit(sensor, op):
-    if checkPulse(sensor):
-        while True:
-            if checkPulse(sensor):
-                if op == "add":
-                    regSpaces += 1
-                else:
-                    regSpaces -= 1
-                updateDisplay()
+    while True:
+        if checkPulse(sensor):
+            while True:
+                if checkPulse(sensor):
+                    if op == "add":
+                        regSpaces += 1
+                    else:
+                        regSpaces -= 1
+                    updateDisplay()
     
 thread.start_new_thread(checkExit, (inputSensor, "add"))
 thread.start_new_thread(checkExit, (outputSensor, "sub"))
