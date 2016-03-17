@@ -47,7 +47,8 @@ class Zone:
             self.display.write("places")
             
     def getAvSpaces(self):
-        return self.avSpaces    
-    
-    def sensorChange(port):
-        if ()
+        return self.avSpaces
+        
+    def main():
+        while True:
+            pass

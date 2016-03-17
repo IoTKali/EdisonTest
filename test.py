@@ -5,13 +5,32 @@ import pyupm_i2clcd as lcd
 import pyupm_ttp223 as touch
 import pyupm_servo as servo
 
+#Sensor configuration
 display = lcd.Jhd1313m1(0, 0x3E, 0x62)
 exitSensor = touch.TTP223(4)
 regSpaces = 17
-spSpaces = 5
+avSpaces = regSpaces
 inputSensor = touch.TTP223(4)
 outputSensor = touch.TTP223(5)
 
+class myThread (threading.Thread):
+    def __init__(self, threadID, sensor, op):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.sensor = sensor
+        self.op = op
+        
+    def run(self):
+        checkExit(self.sensor, self.op)
+
+def checkExit(sensor, op):
+    while True:
+    if checkPulse(sensor):
+        while True:
+            if checkPulse(sensor):
+                setspaces(op)
+                updateDisplay()
+                        
 def updateDisplay():
     display.clear()
     if avSpaces > 0:
@@ -40,25 +59,14 @@ def checkPulse(sensor):
                 return True
     return False
 
-avSpaces = 17
 def setspaces(c):
     if c == "add":
         avSpaces += 1
     else:
         avSpaces -= 1
 
-def checkExit(sensor, op):
-    while True:
-        if checkPulse(sensor):
-            while True:
-                if checkPulse(sensor):
-                    setspaces(op)
-                    updateDisplay()
-                    print avSpaces
 
-
-#thread.start_new_thread(checkExit, (inputSensor, "add", ))
-thread.start_new_thread(checkExit, (outputSensor, "sub", ))
+thread1 = myThread(1, inputSensor, "sub")
 
 while True:
     pass
