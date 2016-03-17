@@ -18,5 +18,5 @@ outputZones = [(touch.TTP223(4), "zone_2")]
 outsideInput =[(touch.TTP223(5), "entrance_1")]
 outsideOutput = []
 
-myZone = Zone(zoneID, regSpaces, spSpaces, outputZones, outsideInput, outsideOutput, display, host)
+myZone = Zone.Zone(zoneID, regSpaces, spSpaces, outputZones, outsideInput, outsideOutput, display, host)
 myZone.main()
