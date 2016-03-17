@@ -17,7 +17,7 @@ client.on_connect = on_connect
 client.on_message = on_message
 
 client.connect("10.43.28.194", 1883, 60)
-
+client.publish("zone_1", "Hi, Yoab")
 # Blocking call that processes network traffic, dispatches callbacks and
 # handles reconnecting.
 # Other loop*() functions are available that give a threaded interface and a
