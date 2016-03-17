@@ -25,11 +25,11 @@ class myThread (threading.Thread):
 
 def checkExit(sensor, op):
     while True:
-    if checkPulse(sensor):
-        while True:
-            if checkPulse(sensor):
-                setspaces(op)
-                updateDisplay()
+        if checkPulse(sensor):
+            while True:
+                if checkPulse(sensor):
+                    setspaces(op)
+                    updateDisplay()
                         
 def updateDisplay():
     display.clear()
