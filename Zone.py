@@ -15,13 +15,16 @@ class Zone:
         self.client.connect(host)
         self.threadArr = []
         for e in outputZones:
-            self.threadArr.append(SensorThread.SensorThread(self.client, e[0], e[1], self.getID()))
+            o = SensorThread.SensorThread(self.client, e[0], e[1], self.getID())
+            self.threadArr.append(o)
             
-        for e in outsideInput:
-            self.threadArr.append(SensorThread.SensorThread(self.client, e[0], self.getID(), e[1]))
+        for e in outsideInput:  
+            o = SensorThread.SensorThread(self.client, e[0], self.getID(), e[1])
+            self.threadArr.append(o)
                                   
         for e in outsideOutput:
-            self.threadArr.append(SensorThread.SensorThread(self.client, e[0], e[1], self.getID()))
+            o = SensorThread.SensorThread(self.client, e[0], e[1], self.getID())
+            self.threadArr.append(o)
         
     def on_connect(client, userdata, flags, rc):
         client.subscribe(zoneID)
