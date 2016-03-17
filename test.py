@@ -47,9 +47,9 @@ def checkExit(sensor, op):
         if checkPulse(sensor):
             while True:
                 if checkPulse(sensor):
-                    if op == "add":
+                    #if op == "add":
                         #avSpaces += 1
-                    else:
+                    #else:
                         #avSpaces -= 1
                     updateDisplay()
                     print avSpaces
