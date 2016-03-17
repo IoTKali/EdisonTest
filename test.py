@@ -40,7 +40,7 @@ def checkPulse(sensor):
                 return True
     return False
 
-avSpaces = regSpaces
+avSpaces = 17
 
 def checkExit(sensor, op):
     while True:
@@ -48,9 +48,9 @@ def checkExit(sensor, op):
             while True:
                 if checkPulse(sensor):
                     if op == "add":
-                        avSpaces = avSpaces + 1
+                        avSpaces += 1
                     else:
-                        avSpaces = avSpaces - 1
+                        avSpaces -= 1
                     updateDisplay()
 
 
