@@ -52,5 +52,5 @@ def checkExit(sensor, op):
                         regSpaces -= 1
                     updateDisplay()
     
-thread.start_new_thread(checkExit, (inputSensor, "add"))
-thread.start_new_thread(checkExit, (outputSensor, "sub"))
+thread.start_new_thread(checkExit, (inputSensor, "add", ))
+thread.start_new_thread(checkExit, (outputSensor, "sub", ))
