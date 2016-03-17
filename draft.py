@@ -9,8 +9,6 @@ exitSensor = touch.TTP223(4)
 regSpaces = 17
 spSpaces = 5
 avSpaces = regSpaces
-inputSensor = touch.TTP223(4)
-outputSensor = touch.TTP223(5)
 
 def updateDisplay():
     display.clear()
@@ -33,22 +31,7 @@ def updateDisplay():
         display.setCursor(1, 0)
         display.write("places")
         
-def checkPulse(sensor):
-    if sensor.isPressed():
-        while True:
-            if not sensor.isPressed():
-                return True
-    return False
-
-def checkExit(sensor, op):
-    if checkPulse(sensor):
-        while True:
-            if checkPulse(sensor):
-                if op == "add":
-                    regSpaces += 1
-                else:
-                    regSpaces -= 1
-                updateDisplay()
-    
-thread.start_new_thread(checkExit, (inputSensor, "add"))
-thread.start_new_thread(checkExit, (outputSensor, "sub"))
+for i in range(regSpaces):
+    avSpaces -= 1
+    updateDisplay()
+    time.sleep(1)

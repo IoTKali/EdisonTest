@@ -14,17 +14,11 @@ class Zone:
         self.entrances
         self.connections
         self.display = display
-        
-    def set_connection():
-        for e in self.zones:
-            #publisher(e[1])
+        for e in self.exits:
+            thread.start_new_thread(checkExit, (e[0], ))
     
     def checkExit(self, port):
-        for e in self.exits:
-            if e[0] == port:
-                #Sends data to DB
-                self.avSpaces += 1
-                self.displayUpdate
+        if port.isPressed():
                 
     def checkEntrance(self):
         #Connects to DB
@@ -53,7 +47,7 @@ class Zone:
             self.display.write("places")
             
     def getAvSpaces(self):
-        return self.avSpaces
+        return self.avSpaces    
     
     def sensorChange(port):
         if ()
