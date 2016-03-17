@@ -1,5 +1,6 @@
 import time
 import thread
+import threading
 import pyupm_grove as grove
 import pyupm_i2clcd as lcd
 import pyupm_ttp223 as touch
