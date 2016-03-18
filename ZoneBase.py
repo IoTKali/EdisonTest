@@ -1,4 +1,3 @@
-import threading
 import paho.mqtt.client as mqtt
 import pyupm_grove as button
 import pyupm_i2clcd as lcd
@@ -16,16 +15,6 @@ class Zone:
         self.display = display
         self.client = mqtt.Client(client_id=zoneID)
         self.client.connect(host)
-        self.threadArr = []
-        lock = threading.Lock()
-        for e in outputZones:
-            self.threadArr.append(SensorThread(self.client, e[0], e[1], self.getID(), lock))
-            
-        for e in outsideInput:  
-            self.threadArr.append(SensorThread(self.client, e[0], self.getID(), e[1], lock))
-                                  
-        for e in outsideOutput:
-            self.threadArr.append(SensorThread(self.client, e[0], e[1], self.getID(), lock))
         
     def on_connect(client, userdata, flags, rc):
         client.subscribe(zoneID)
@@ -45,11 +34,6 @@ class Zone:
 
     def getID(self):
         return self.zoneID
-        
-    def main(self):
-        sensors.updateDisplay(self.display, self.avSpaces, regSpaces)
-        self.client.on_connect = self.on_connect
-        self.client.on_message = self.on_message
-        for t in self.threadArr:
-            t.start()
     
+    def getDisplay(self):
+        return self.display
