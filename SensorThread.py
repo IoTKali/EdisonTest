@@ -1,6 +1,7 @@
 import threading
 import sensors
 import paho.mqtt.client as mqtt
+import pyupm_ttp223 as ttp223
 
 class SensorThread(threading.Thread):
     def __init__(self, client, sensor, topic, msg, lock):

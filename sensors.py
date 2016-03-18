@@ -1,3 +1,6 @@
+import pyupm_ttp223 as ttp223
+import pyupm_grove as grove
+
 def checkTouchPulse(touch):
     if touch.isPressed():
         while True:
