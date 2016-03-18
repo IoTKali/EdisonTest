@@ -4,7 +4,7 @@ import sensors
 import paho.mqtt.client as mqtt
 
 class SensorThread(threading.Thread):
-    def __init__(self, client, sensor, topic, msg, lock, display, avSpaces, regSpaces):
+    def __init__(self, client, sensor, topic, msg, display, avSpaces, regSpaces, internOp, lock):
         threading.Thread.__init__(self)
         self.client = client
         self.sensor = sensor
@@ -14,6 +14,7 @@ class SensorThread(threading.Thread):
         self.display = display
         self.avSpaces = avSpaces
         self.regSpaces = regSpaces
+        self.internOp = internOp
         
     def main(self):
         self.lock.acquire()

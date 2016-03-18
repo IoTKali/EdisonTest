@@ -4,7 +4,7 @@ import pyupm_grove as button
 import pyupm_i2clcd as lcd
 import pyupm_ttp223 as touch
 
-from SensorThread import SensorThread
+import SensorThread
 from sensors import displayUpdate
 
 class Zone:
@@ -19,13 +19,13 @@ class Zone:
         self.threadArr = []
         lock = threading.Lock()
         for e in outputZones:
-            self.threadArr.append(SensorThread(self.client, e[0], e[1], self.getID(), lock))
+            self.threadArr.append(SensorThread(self.client, e[0], e[1], self.getID(), "sub", lock))
             
         for e in outsideInput:  
-            self.threadArr.append(SensorThread(self.client, e[0], self.getID(), e[1], lock))
+            self.threadArr.append(SensorThread(self.client, e[0], self.getID(), e[1], "none", lock))
                                   
         for e in outsideOutput:
-            self.threadArr.append(SensorThread(self.client, e[0], e[1], self.getID(), lock))
+            self.threadArr.append(SensorThread(self.client, e[0], e[1], self.getID(), "add", lock))
         
     def on_connect(client, userdata, flags, rc):
         client.subscribe(zoneID)
