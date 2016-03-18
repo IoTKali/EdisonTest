@@ -16,6 +16,7 @@ class SensorThread(threading.Thread):
             self.lock.acquire()
             if sensors.doubleTouchPulse(self.sensor):
                 self.client.publish(self.topic, msg)
+                print self.topic + "-" + msg
             self.Zone.updateDisplay()
             self.lock.release()
         
