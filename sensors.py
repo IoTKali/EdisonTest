@@ -15,7 +15,7 @@ def checkButtonPulse(button):
                 return True
     return False
 
-def doubleTouchPulse(touch, op):
+def doubleTouchPulse(touch):
     while True:
         if checkTouchPulse(touch):
             while True:

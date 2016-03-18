@@ -73,6 +73,4 @@ class Zone:
         for t in self.threadArr:
             t.start()
             t.join()
-        while True:
-            pass
     

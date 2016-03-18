@@ -12,11 +12,12 @@ class SensorThread(threading.Thread):
         self.lock = lock
         
     def main(self):
-        self.lock.acquire()
-        if sensors.doubleTouchPulse(self.sensor):
-            self.client.publish(self.topic, msg)
-        self.Zone.updateDisplay()
-        self.lock.release()
+        while True:
+            self.lock.acquire()
+            if sensors.doubleTouchPulse(self.sensor):
+                self.client.publish(self.topic, msg)
+            self.Zone.updateDisplay()
+            self.lock.release()
         
     def run(self):
         self.main()
