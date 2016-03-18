@@ -4,7 +4,7 @@ import pyupm_grove as button
 import pyupm_i2clcd as lcd
 import pyupm_ttp223 as touch
 
-import SensorThread
+from SensorThread import SensorThread
 from sensors import displayUpdate
 
 class Zone:
