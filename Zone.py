@@ -71,6 +71,7 @@ class Zone:
         self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
         for t in self.threadArr:
+            t.start()
             t.join()
         while True:
             pass
