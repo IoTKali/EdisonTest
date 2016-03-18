@@ -13,16 +13,17 @@ class Zone:
         self.client = mqtt.Client(client_id=zoneID)
         self.client.connect(host)
         self.threadArr = []
+        lock = threading.Lock()
         for e in outputZones:
-            o = SensorThread(self.client, e[0], e[1], self.getID())
+            o = SensorThread(self.client, e[0], e[1], self.getID(), lock)
             self.threadArr.append(o)
             
         for e in outsideInput:  
-            o = SensorThread(self.client, e[0], self.getID(), e[1])
+            o = SensorThread(self.client, e[0], self.getID(), e[1], lock)
             self.threadArr.append(o)
                                   
         for e in outsideOutput:
-            o = SensorThread(self.client, e[0], e[1], self.getID())
+            o = SensorThread(self.client, e[0], e[1], self.getID(), lock)
             self.threadArr.append(o)
         
     def on_connect(client, userdata, flags, rc):
