@@ -1,7 +1,6 @@
 import threading
 import sensors
 import paho.mqtt.client as mqtt
-import pyupm_ttp223 as ttp223
 
 class SensorThread(threading.Thread):
     def __init__(self, client, sensor, topic, msg, lock):
@@ -14,12 +13,8 @@ class SensorThread(threading.Thread):
         
     def main(self):
         self.lock.acquire()
-        if isinstance(self.sensor, ttp223):
-            if doubleTouchPulse(self.sensor):
-                self.client.publish(self.topic, msg)
-        else:
-            if checkButtonPulse(self.sensor):
-                self.client.publish(self.topic, msg)
+        if doubleTouchPulse(self.sensor):
+            self.client.publish(self.topic, msg)
         self.Zone.updateDisplay()
         self.lock.release()
         
