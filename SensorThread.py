@@ -13,7 +13,7 @@ class SensorThread(threading.Thread):
         
     def main(self):
         self.lock.acquire()
-        if doubleTouchPulse(self.sensor):
+        if sensors.doubleTouchPulse(self.sensor):
             self.client.publish(self.topic, msg)
         self.Zone.updateDisplay()
         self.lock.release()
